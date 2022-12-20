@@ -3,6 +3,7 @@ const cardel = document.querySelector("#card-box");
 const selectEl = document.querySelector("#select");
 const inputEl =document.querySelector("input")
 const formEl =document.querySelector("form")
+const selectEl2 =document.querySelector("#select2")
 
 function domgachiqarator(array, node) {
   let cards = "";
@@ -38,6 +39,25 @@ selectEl.addEventListener("change", () => {
     domgachiqarator(pokemons, cardel);
   }
 });
+console.log(selectEl2);
+selectEl2.addEventListener("change", (evnt) => {
+  evnt.preventDefault();
+  if (selectEl2.value == "All") {
+    domgachiqarator(pokemons, cardel);
+  } else if (selectEl2.value == "A-Z") {
+    const sortFilm = pokemons.sort((a, b) => {
+      return a.name.charCodeAt(0) - b.name.charCodeAt(0)
+    })
+    domgachiqarator(sortFilm, cardel)
+  } else if (selectEl2.value == "Z-A") {
+    const sortFilm = pokemons.sort((a, b) => {
+      return b.name.charCodeAt(0) - a.name.charCodeAt(0)
+    })
+    domgachiqarator(sortFilm, cardel)
+  }else{
+    domgachiqarator(pokemons, cardel);
+  }
+})
 
 let optionarr =[];
 pokemons.forEach((val)=>{
@@ -74,46 +94,10 @@ domgachiqarator(newarr2,cardel)
 newarr2 =[]
 })
 
-console.log(newarr2)
+// console.log(newarr2)
 
 
 
 
 
-// const cardel =document.querySelector("#card-box")
-// const inputEl =document.querySelector("input")
-// const formEl =document.querySelector("input")
 
-// let newarr= []
-
-// formEl.addEventListener("input", (evt) =>{
-//   evt.preventDefault()
-
-//   let elinputval =inputEl.value;
-
-// pokemons.forEach((el) => {
-//   if(el.name.includes(elinputval)){
-//     newarr.push(el)
-//   }
-// });
-// })
-// function myFunc() {
-//     let cards =""
-//     for( item of pokemons){
-//          cards +=`  <div class="card col-lg-3 col-md-4 col-sm-12 col-12 mx-sm-auto  mx-3 text-center  shadow-lg p-2  rounded  rounded-4  mt-2 mb-4 " >
-//           <img src="${item.img}" class="card-img-top" alt="images">
-//        <div class="card-body">
-//        <h4 class="card-title">${item.id}</h4>
-//         <h5 class="card-title">${item.name}</h5>
-//         <h5 class="card-title">${item.spawn_time}</h5>
-//         <p class="card-text"><span> height: ${item.height}</span><br><span> weight: ${item.weight}</span></p>
-//         <h6 class="card-title"><span>${item.weaknesses}</span></h6>
-//       </div>
-//       </div> `
-   
-//       console.log(item.egg);
-//     }
-    
-//     cardel.innerHTML =cards
-// }
-// myFunc()

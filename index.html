@@ -64,8 +64,15 @@
             #pokemon {
                 font-size: 25px;
             }
+           .box{
+            flex-direction: column;
+           }
         }
-
+          
+           .form-selec,.form-control{
+        padding: 10px;
+        border-radius: 5px;
+      }
             .container {
                 max-width: 1440px;
             }
@@ -75,12 +82,20 @@
     <body>
         <div class="container mx-auto ">
             <h1 id="pokemon" class="mx-auto text-center mt-5 ">pokemon</h1>
-            <form class="form row justify-content-center gap-4">
-                <input type="search" class="form-control w-50">
-            </form>
-            <select class="form-select w-50 mx-auto mt-3" id="select">
-                <option value="All">All</option>
-            </select>
+            <div class="bo row justify-content-around mt-3 mb-3">
+                <form class="form row justify-content-center mt-3    mx-auto col-10 col-lg-3 col-md-6  " >
+                    <input type="search" placeholder="Search-Pokemons" class="form-control ">
+                </form>
+                <select class="form-selec  mt-3  mx-auto col-10 col-lg-3 col-md-6  " id="select">
+                    <option value="All">All</option>
+                </select>
+                <select class="form-selec  mt-3  mx-auto col-10 col-lg-3 col-md-6  " id="select2">
+                    <option value="Sorting-Pokemons" disabled selected>Sorting-Pokemons</option>
+                    <option value="All">All</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                </select>
+            </div>
             <div class="row gap-auto cards  flex-wrap" id="card-box">
 
             </div>
