@@ -94,6 +94,23 @@ domgachiqarator(newarr2,cardel)
 newarr2 =[]
 })
 
+let ModeBtn = document.querySelector(".mode");
+let theme = false;
+
+ModeBtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  let NewBg = theme ? "dark" : "light";
+  theme = !theme;
+  window.localStorage.setItem("theme", NewBg);
+  ChageMode();
+});
+
+let ChageMode = () => {
+  if (window.localStorage.getItem("theme") == "dark") {
+    document.body.classList.add("dark");
+  } else document.body.classList.remove("dark");
+};
+ChageMode();
 // console.log(newarr2)
 
 
